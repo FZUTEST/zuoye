@@ -13,7 +13,7 @@ int random2()//生成[0，10000]随机整数
 
 float random3()//生成[0，10000]随机小数
 {
-  	float num1,num2;
+  	float num1,num2; 
  	float down=0.2,top=2.4;
  	float a;
  	srand((unsigned int)time(NULL));
