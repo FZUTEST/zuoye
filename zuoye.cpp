@@ -3,7 +3,10 @@ using namespace std;
 
 int random1()//生成[0，100]随机整数
 {
-
+	int a;
+	srand((int)time(0));
+	a=(rand()%100);
+	return a;
 }
 
 int random2()//生成[0，10000]随机整数
