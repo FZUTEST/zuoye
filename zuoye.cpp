@@ -22,12 +22,12 @@ float random3()//生成[0，10000]随机小数
 
 
   	float num;   
-	  float a;
-	  //srand((unsigned int)time(NULL));
+	//srand((unsigned int)time(NULL));
     num=(float)rand()*10000/RAND_MAX;
-    a=num;
-    printf("a=%f\n",a);
-	  return a;
+    
+    //printf("a=%f\n",a);
+	return num;
+
 
 
 }
@@ -39,16 +39,20 @@ void test_a(int num)//第一等级
     int randomSingle = 0;
     int _num = num;//用户输入要做的题目数
     int answer[_num];
-   // srand((int)time(0));  // 产生随机种子
     char str1[4] = { '+','-','=','?'};//加减等于问号 字符串数组
     for (int j = 0; j < _num; j++)
     {
         int sum = 0;
-        for (int i = 0; i < num_random; i++)
+        int num_random = random(10);//随机出每个算式的数字有多少个
+        while(num_random==1)
+        {
+            num_random = random(10);
+        }
+        for (int i = 0; i <num_random ; i++)
         {
             int str1_random = rand() % 2;//随机生成0或1，为0生成加号，为1生成减号
             randomSingle = random1();
-            if (str1_random == 0 && i < num_random && i == 0)
+            if (str1_random == 0 && i < num_random && i == 0 )
             {
                 cout << randomSingle << " ";
                 sum += randomSingle;
@@ -102,7 +106,11 @@ void test_c(int num)//第三等级
 int main()
 {
     int grade;
-    srand((int)time(NULL));    
+    srand((int)time(NULL));  
+    // for (int i = 0; i < 8; i++)
+    // {
+    //     cout<<random3()<<endl;
+    // }
     cout <<  "enter grade" << endl;//输入一到六
     cin>>grade;
     int num=0;
