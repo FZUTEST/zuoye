@@ -9,6 +9,12 @@
 #include "calculate.h"
 using namespace std;
 
+
+void delay(int time)
+{
+    clock_t now=clock();
+    while(clock()-now<time);
+}
 //unordered_map<string,int>grade_dif={{"一年级",1},{"二年级",1},{"三年级",2},{"四年级",2},{"五年级",3},{"六年级",3}};
 
 class Interaction
@@ -324,6 +330,7 @@ vector<pair<string, double>> QuestionFactory::creat()
         {
             Question *ques = new Easy;
             temp.push_back(ques->getQuestion());
+            delay(1000);
         }
         break;
     case 2:
@@ -331,6 +338,7 @@ vector<pair<string, double>> QuestionFactory::creat()
         {
             Question *ques = new Normal;
             temp.push_back(ques->getQuestion());
+            delay(1000);
         }
         break;
     case 3:
@@ -338,6 +346,7 @@ vector<pair<string, double>> QuestionFactory::creat()
         {
             Question *ques = new Hard;
             temp.push_back(ques->getQuestion());
+            delay(1000);
         }
         break;
     default:

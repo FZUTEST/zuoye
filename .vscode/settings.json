@@ -2,6 +2,7 @@
     "files.associations": {
         "string": "cpp",
         "utility": "cpp",
-        "ctime": "cpp"
+        "ctime": "cpp",
+        "vector": "cpp"
     }
 }
