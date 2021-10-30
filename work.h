@@ -91,7 +91,7 @@ public:
 
 double calculate(string str)
 {					
-    
+    return 1;
 }
 
 
