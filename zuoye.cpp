@@ -1,52 +1,39 @@
 #include <iostream>
 #include <cstdlib>
-#include <ctime>
+#include <time.h>
 using namespace std;
-#define random(a,b) (rand()%(b-a)+a)
+#define random(x) rand()%(x)
 
 
 int random1()//生成[0，100]随机整数
 {
-    srand((int)time(0));
-    int num = random(0, 100);
-    return num;
+    
+    return random(100);
 }
 
 int random2()//生成[0，10000]随机整数
 {
-    int b;
-    srand((int)time(0));  // 产生随机种子
-    b=(rand() % (10000-0+1))+ 0; 
-    system("pause");
-    return b;
 
+    return random(10000);
 }
 
 float random3()//生成[0，10000]随机小数
 {
 
   	float num1,num2; 
- 	  float down=0.2,top=2.4;
- 	  float a;
- 	  srand((unsigned int)time(NULL));
+ 	float down=0.2,top=2.4;
+ 	float a;
     num1=(float)rand()/RAND_MAX;
     num2=(float)rand()*9999/RAND_MAX;
     a=num2+down+num1*(top-down);
-    return a
-
-    
+    return a;
 
 }
 
 void test_a(int num)//第一等级
 {
-    //调用random1()生成[0，100]随机整数
-    /*
-    #include <cstdlib>
-    #include <ctime>
-    */
-    int _num = num;//用户输入要做的题目数
-    srand((int)time(0));  // 产生随机种子
+    
+    int _num = num;//用户输入要做的题目数1
     char str1[4] = { '+','-','=','?'};//加减等于问号 字符串数组
     for (int j = 0; j < _num; j++)
     {
@@ -86,7 +73,7 @@ void test_c(int num)//第三等级
 int main()
 {
     int grade;
-    
+    srand((int)time(NULL));    
     cout <<  "enter grade" << endl;//输入一到六
     cin>>grade;
     int num=0;
