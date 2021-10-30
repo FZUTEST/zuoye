@@ -6,11 +6,27 @@
 #include <cstdlib>
 #include <ctime>
 #include <unordered_map>
+#include <regex>
 #include "calculate.h"
 using namespace std;
 
 
 unordered_map<string,int>grade_dif={{"一年级",1},{"二年级",1},{"三年级",2},{"四年级",2},{"五年级",3},{"六年级",3}};
+
+static std::string doubleToString(double price) {
+	auto res = std::to_string(price);
+	const std::string format("$1");
+	try {
+		std::regex r("(\\d*)\\.0{6}|");
+		std::regex r2("(\\d*\\.{1}0*[^0]+)0*");
+		res = std::regex_replace(res, r2, format);
+		res = std::regex_replace(res, r, format);
+	}
+	catch (const std::exception & e) {
+		return res;
+	}
+	return res;
+}
 
 class Interaction
 {
@@ -224,9 +240,9 @@ pair<string, double> Hard::getQuestion()
         {
             double _num = rand() % 10001+(double)(rand()%100)/100;
             char _symbol = symbol[(rand() % 4)];
-            ques += to_string(_num) + _symbol;
+            ques += doubleToString(_num) + _symbol;
         }
-        ques += to_string(rand() % 10001+(double)(rand()%100)/100);
+        ques += doubleToString(rand() % 10001+(double)(rand()%100)/100);
     }
 
     //有括号
@@ -236,7 +252,7 @@ pair<string, double> Hard::getQuestion()
         int rbracketNum = 0;
         for (int i = 0; i < figureNum - 1; ++i)
         {
-            int _num = rand() % 10001+(double)(rand()%100)/100;
+            double _num = rand() % 10001+(double)(rand()%100)/100;
             char _symbol = symbol[(rand() % 4)];
             int isBracket;
             int cur = 0; //判断是否进入过循环
@@ -251,7 +267,7 @@ pair<string, double> Hard::getQuestion()
                     ques += '(';
                 }
             } while (isBracket);
-            ques += to_string(rand() % 10001+(double)(rand()%100)/100);
+            ques += doubleToString(rand() % 10001+(double)(rand()%100)/100);
             if ((!cur) && rbracketNum)
             {
                 ques += ')';
@@ -259,7 +275,7 @@ pair<string, double> Hard::getQuestion()
             }
             ques += _symbol;
         }
-        ques+=to_string(rand() % 10001+(double)(rand()%100)/100);
+        ques+=doubleToString(rand() % 10001+(double)(rand()%100)/100);
         for (int i = 0; i < rbracketNum; i++)
         {
             ques += ")";
@@ -304,6 +320,7 @@ void Interaction::work()
         cin >> temp;
         if (question[i].second != temp)
         {
+            //cout<<question[i].second;
             errorNum++;
         }
     }
