@@ -40,7 +40,6 @@ class Question
 {
 protected:    
     int figureNum;
-    vector<char>symbolVec;
     bool bracket;
 public:
     Question()
@@ -61,7 +60,6 @@ class Easy:public Question
 {
 protected:
     char symbol[2]={'+','-'};
-    vector<int>numVec;
 public:
     pair<string, double> &getQuestion()override;
 
@@ -72,7 +70,6 @@ class Normal:public Question
 {
 protected:
     char symbol[4]={'+','-','*','/'};
-    vector<int>numVec;
 public:
     pair<string, double> &getQuestion()override;
 };
@@ -82,7 +79,6 @@ class Hard:public Question
 {
 protected:
     char symbol[4]={'+','-','*','/'};
-    vector<double>numVec;
 public:
     pair<string, double> &getQuestion()override;
 
