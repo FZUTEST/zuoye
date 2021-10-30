@@ -3,18 +3,48 @@
 pair<string, double> &Easy::getQuestion()
 {
     //生成数字集和符号集
-    
     string ques = "";
-    for (int i = 0; i < figureNum - 1; ++i)
+    if (figureNum <= 2)
+        bracket = 0;
+    //无括号
+    if (bracket)
     {
+        for (int i = 0; i < figureNum - 1; ++i)
+        {
+            numVec.push_back(rand() % 101);
+            symbolVec.push_back(symbol[rand() % 2]);
+            ques += to_string(numVec[i]) + symbolVec[i];
+        }
         numVec.push_back(rand() % 101);
-        symbolVec.push_back(symbol[rand() % 2]);
-        ques += to_string(numVec[i]) + symbolVec[i];
+        ques += numVec.back();
     }
-    numVec.push_back(rand() % 101);
-    ques += numVec.back();
-
+    //有括号
+    else
+    {
+        int bracketNum = rand() % (figureNum - 2);
+        int rbracketNum=bracketNum;
+        for (int i = 0; i < figureNum - 1; ++i)
+        {
+            numVec.push_back(rand() % 101);
+            symbolVec.push_back(symbol[rand() % 2]);
+            bool isBracket=rand()%2;
+            if(isBracket&&bracketNum)
+            {
+                bracketNum--;
+                ques += to_string(numVec[i]) +"("+ symbolVec[i];
+            }
+            else ques += to_string(numVec[i]) + symbolVec[i];
+        }
+        numVec.push_back(rand() % 101);
+        ques += numVec.back();
+        for(int i=0;i<rbracketNum;i++)
+        {
+            ques +=")";
+        }
+    }
     //计算输出
+    pair<string, double>result;
+    result=make_pair(ques,calculate(ques));
 }
 
 //Interaction类实现

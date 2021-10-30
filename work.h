@@ -86,3 +86,13 @@ public:
     pair<string, double> &getQuestion()override;
 
 };
+
+
+double calculate(string str)
+{
+
+}
+
+
+
+
