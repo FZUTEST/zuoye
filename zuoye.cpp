@@ -25,16 +25,13 @@ int random2()//生成[0，10000]随机整数
 float random3()//生成[0，10000]随机小数
 {
 
-  	float num1,num2; 
- 	  float down=0.2,top=2.4;
- 	  float a;
- 	  srand((unsigned int)time(NULL));
-    num1=(float)rand()/RAND_MAX;
-    num2=(float)rand()*9999/RAND_MAX;
-    a=num2+down+num1*(top-down);
-    return a
-
-    
+  	float num;   
+	float a;
+	srand((unsigned int)time(NULL));
+    num=(float)rand()*10000/RAND_MAX;
+    a=num;
+    printf("a=%f\n",a);
+	return 0;
 
 }
 
