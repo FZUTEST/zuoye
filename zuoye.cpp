@@ -1,18 +1,34 @@
 #include <iostream>
+#include <cstdlib>
+#include <time.h>
 using namespace std;
+#define random(x) rand()%(x)
+
 
 int random1()//生成[0，100]随机整数
 {
-
+    
+    return random(100);
 }
 
 int random2()//生成[0，10000]随机整数
 {
 
+    return random(10000);
 }
 
 float random3()//生成[0，10000]随机小数
 {
+
+
+  	float num;   
+	  float a;
+	  //srand((unsigned int)time(NULL));
+    num=(float)rand()*10000/RAND_MAX;
+    a=num;
+    printf("a=%f\n",a);
+	  return a;
+
 
 }
 
@@ -101,12 +117,13 @@ void test_c(int num)//第三等级
 int main()
 {
     int grade;
-    cout<<"请输入你的年级"<<endl;//输入一到六
+    srand((int)time(NULL));    
+    cout <<  "enter grade" << endl;//输入一到六
     cin>>grade;
     int num=0;
-    cout<<"请输入你想要的题数"<<endl;
+    cout <<  "enter num" << endl;
     cin>>num;
-    
+    //cout <<  random1() << endl;
     switch(grade)
     {
         case 1 :
