@@ -15,7 +15,7 @@ void delay(int time)
     clock_t now=clock();
     while(clock()-now<time);
 }
-//unordered_map<string,int>grade_dif={{"一年级",1},{"二年级",1},{"三年级",2},{"四年级",2},{"五年级",3},{"六年级",3}};
+unordered_map<string,int>grade_dif={{"一年级",1},{"二年级",1},{"三年级",2},{"四年级",2},{"五年级",3},{"六年级",3}};
 
 class Interaction
 {
@@ -281,10 +281,10 @@ pair<string, double> Hard::getQuestion()
 int Interaction::getDifficulty()
 {
     cout << "请输入你的年级" << endl;
-    //string grade;
-    //cin >> grade;
-    //difficulty = grade_dif[grade];
-    cin>> difficulty;
+    string grade;
+    cin >> grade;
+    difficulty = grade_dif[grade];
+    //cin>> difficulty;
     return difficulty;
 }
 
