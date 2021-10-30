@@ -14,6 +14,11 @@ int random1()//生成[0，100]随机整数
 
 int random2()//生成[0，10000]随机整数
 {
+    int b;
+    srand((int)time(0));  // 产生随机种子
+    b=(rand() % (10000-0+1))+ 0; 
+    system("pause");
+    return b;
 
 }
 
