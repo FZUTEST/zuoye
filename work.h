@@ -6,6 +6,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <unordered_map>
+#include "calculate.h"
 using namespace std;
 
 unordered_map<string,int>grade_dif={{"一年级",1},{"二年级",1},{"三年级",2},{"四年级",2},{"五年级",3},{"六年级",3}};
@@ -89,8 +90,8 @@ public:
 
 
 double calculate(string str)
-{
-
+{					
+    
 }
 
 
