@@ -39,11 +39,14 @@ void test_a(int num)//第一等级
     int randomSingle = 0;
     int _num = num;//用户输入要做的题目数
     int answer[_num];
+
     //srand((int)time(0));  // 产生随机种子
+
     char str1[4] = { '+','-','=','?'};//加减等于问号 字符串数组
     for (int j = 0; j < _num; j++)
     {
         int sum = 0;
+
         int num_random = random(10);//随机出每个算式的数字有多少个
         while(num_random==1)
         {
@@ -54,6 +57,7 @@ void test_a(int num)//第一等级
         {
             int str1_random = rand() % 2;//随机生成0或1，为0生成加号，为1生成减号
             randomSingle = random1();
+
             cout << randomSingle << " ";
             if (str1_random == 0 && i != num_random - 1)
             {
